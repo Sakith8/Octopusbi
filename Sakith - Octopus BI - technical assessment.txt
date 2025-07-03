@@ -1,0 +1,128 @@
+Part A
+1. d
+2. c
+3. d
+4. b
+5. b
+6. a
+7. a
+8. b
+9. d
+10. c
+
+------------------------------------------------------------
+Part B
+
+
+1.
+
+
+2. CREATE TABLE = "Employees"
+(  EmployeeID INT PRIMARY KEY,
+   FirstName VARCHAR(40)
+   LastName VARCHAR(40)
+   DepartmentID INT
+   HireDate DATETIME
+   MonthlySalary DECIMAL(6,2)
+);
+
+CREATE TABLE = "Departments"
+(  DepartmentID INT PRIMARY KEY,
+   DepartmentName VARCHAR(40)
+);
+
+
+CREATE TABLE = "Projects"
+(  ProjectID INT PRIMARY KEY,
+   ProjectName VARCHAR(40)
+);
+
+
+CREATE TABLE Department_Projects
+( DepartmentID INT,
+  ProjectID INT,
+  PRIMARY KEY (DepartmentID, ProjectID)
+);
+
+------------------------------------------------------------
+3. 
+a. 
+
+SELECT
+ d.DepartmentName, 
+ COUNT(e.EmployeeID) AS Total_employees_hired
+FROM Employees e
+JOIN Departments d
+ON e.department_id = d.department_id
+WHERE e.HireDate = '2021-01-01'
+GROUP BY d.DepartmentName
+ORDER BY Total_employees_hired;
+
+b. 
+SELECT LastName
+FROM Employees
+WHERE Department = 'Engineering'
+ AND MonthlySalary >
+(SELECT AVG(salary)
+FROM employees WHERE department = 'Engineering'
+);
+
+c. 
+SELECt 
+d.DepartmentName
+p.ProjectName
+e.LastName
+
+FROM Employees e
+JOIN Projects p ON e.ProjectID = p.ProjectID
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+ORDER BY d.DepartmentName, p.ProjectName, e.EmployeeName
+
+d.
+   
+  
+------------------------------------------------------------
+Part C
+
+1. numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numb = [num for num in numbers if num % 2 == 0]
+print(even_numbers) 
+
+2. student = { 'name': 'alex' , 'age': 22, 'major': 'computer science'}
+ major = student ["major"]
+print(major)
+
+3. 
+a. import pandas as pd
+   df = pd.dataframe('customer_id', 'sales_amount')
+
+group = df.groupby('customer_id')
+total_sale = group['sales_amount'].sum()
+print(total_sale)
+
+b. 
+customers = [ customer for customer in customers if customer["total_sale"]>1000]
+
+c. 
+tot_sales = sorted('total_Sales',reverse=True)
+print(tot_sales)
+
+
+d.
+
+unique_cust = set(customers_id)
+customer_total = df.groupby('customer_id')['sales_amount'].sum().reset_index()
+customer_total.columns = ['customer', 'total']
+
+print(customer total)
+
+ df['average_order_value']= customer_total
+
+------------------------------------------------------------
+Part D
+
+1. 
+
+
+
+
